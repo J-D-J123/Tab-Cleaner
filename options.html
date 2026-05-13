@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tab Cleaner — Settings</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="page-header">
+      <svg viewBox="0 0 32 32" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="32" height="32" rx="8" fill="#4f46e5"/>
+        <path d="M21 7 L11 20" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M9 18 Q14 25 20 22" stroke="white" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <circle cx="23" cy="9" r="2.5" fill="#fbbf24"/>
+      </svg>
+      <div>
+        <h1>Tab Cleaner</h1>
+        <p>Automatically removes site data</p>
+      </div>
+    </header>
+
+    <main>
+      <!-- Master toggle -->
+      <section class="card">
+        <div class="row-between">
+          <div>
+            <div class="row-label">Enable extension</div>
+            <div class="row-desc">Automatically removes site data when tabs are closed</div>
+          </div>
+          <label class="toggle">
+            <input type="checkbox" id="enabled" />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </section>
+
+      <!-- When to clear -->
+      <section class="card">
+        <div class="section-title">When to clear</div>
+
+        <label class="radio-row">
+          <input type="radio" name="mode" value="all" />
+          <div>
+            <div class="row-label">Every tab close</div>
+            <div class="row-desc">Clears all selected data immediately when any tab closes</div>
+          </div>
+        </label>
+
+        <label class="radio-row">
+          <input type="radio" name="mode" value="origin" />
+          <div>
+            <div class="row-label">Site data only</div>
+            <div class="row-desc">Clears only the cookies, cache & storage for the site you just closed</div>
+          </div>
+        </label>
+
+        <label class="radio-row">
+          <input type="radio" name="mode" value="last-tab" />
+          <div>
+            <div class="row-label">Only when last tab closes</div>
+            <div class="row-desc">Waits until all tabs are closed, then clears everything at once</div>
+          </div>
+        </label>
+      </section>
+
+      <!-- What to clear -->
+      <section class="card">
+        <div class="section-title">What to clear</div>
+
+        <label class="check-row">
+          <input type="checkbox" id="history" />
+          <div>
+            <div class="row-label">Browsing history</div>
+            <div class="row-desc">URLs you have visited</div>
+          </div>
+        </label>
+
+        <label class="check-row">
+          <input type="checkbox" id="cookies" />
+          <div>
+            <div class="row-label">Cookies &amp; site data <span class="tag always-tag">Always all time</span></div>
+            <div class="row-desc">Removes login sessions and site cookies — fully wiped every time</div>
+          </div>
+        </label>
+
+        <label class="check-row">
+          <input type="checkbox" id="cache" />
+          <div>
+            <div class="row-label">Cached images &amp; files <span class="tag always-tag">Always all time</span></div>
+            <div class="row-desc">Stored HTTP cache — fully wiped every time regardless of time range</div>
+          </div>
+        </label>
+
+        <label class="check-row">
+          <input type="checkbox" id="cacheStorage" />
+          <div>
+            <div class="row-label">Cache storage <span class="tag always-tag">Always all time</span></div>
+            <div class="row-desc">Service worker cache (used by PWAs) — fully wiped every time</div>
+          </div>
+        </label>
+
+        <label class="check-row">
+          <input type="checkbox" id="formData" />
+          <div>
+            <div class="row-label">Autofill form data</div>
+            <div class="row-desc">Names, addresses, search terms stored for autofill</div>
+          </div>
+        </label>
+
+        <label class="check-row">
+          <input type="checkbox" id="localStorage" />
+          <div>
+            <div class="row-label">Local storage <span class="tag always-tag">Always all time</span></div>
+            <div class="row-desc">Key/value data stored by websites — fully wiped every time</div>
+          </div>
+        </label>
+
+        <label class="check-row">
+          <input type="checkbox" id="indexedDB" />
+          <div>
+            <div class="row-label">IndexedDB <span class="tag always-tag">Always all time</span></div>
+            <div class="row-desc">Structured site databases (offline data, PWAs) — fully wiped every time</div>
+          </div>
+        </label>
+
+        <label class="check-row">
+          <input type="checkbox" id="serviceWorkers" />
+          <div>
+            <div class="row-label">Service workers <span class="tag always-tag">Always all time</span></div>
+            <div class="row-desc">Background scripts that enable offline functionality — fully wiped every time</div>
+          </div>
+        </label>
+
+        <label class="check-row">
+          <input type="checkbox" id="fileSystems" />
+          <div>
+            <div class="row-label">File systems <span class="tag always-tag">Always all time</span></div>
+            <div class="row-desc">Files stored by websites via the File System API — fully wiped every time</div>
+          </div>
+        </label>
+
+        <div class="divider"></div>
+
+        <label class="check-row">
+          <input type="checkbox" id="webSQL" />
+          <div>
+            <div class="row-label">Web SQL <span class="tag always-tag">Always all time</span></div>
+            <div class="row-desc">Legacy SQL databases that some sites still store data in</div>
+          </div>
+        </label>
+
+        <label class="check-row">
+          <input type="checkbox" id="downloads" />
+          <div>
+            <div class="row-label">Download history <span class="tag always-tag">Always all time</span></div>
+            <div class="row-desc">Log of every file you have downloaded — fully wiped every time</div>
+          </div>
+        </label>
+
+        <label class="check-row danger">
+          <input type="checkbox" id="passwords" />
+          <div>
+            <div class="row-label">Saved passwords <span class="tag danger-tag">Caution</span></div>
+            <div class="row-desc">Permanently removes all passwords saved in the browser</div>
+          </div>
+        </label>
+      </section>
+
+      <!-- Time range -->
+      <section class="card">
+        <div class="section-title">History time range</div>
+        <div class="select-row">
+          <label for="timespanHours" class="row-label">Delete browsing history from the past</label>
+          <select id="timespanHours">
+            <option value="0">All time</option>
+            <option value="1">Last hour</option>
+            <option value="24">Last 24 hours</option>
+            <option value="168">Last 7 days</option>
+            <option value="720">Last 30 days</option>
+          </select>
+        </div>
+        <div class="row-desc" style="margin-top:8px">
+          Cookies, cache, and all site storage are <strong>always</strong> wiped from all time — this setting only affects browsing history and form data.
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <span id="save-status"></span>
+      <button id="save-btn" class="save-btn">Save settings</button>
+    </footer>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

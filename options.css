@@ -1,0 +1,192 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f8f8fc;
+  color: #1e1e2e;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.page {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 24px 16px 100px;
+}
+
+/* Page header */
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.page-header h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e1e2e;
+}
+.page-header p {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+/* Cards */
+.card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+/* Toggle switch */
+.toggle { position: relative; width: 44px; height: 24px; cursor: pointer; flex-shrink: 0; }
+.toggle input { opacity: 0; width: 0; height: 0; }
+.slider {
+  position: absolute; inset: 0;
+  background: #d1d5db;
+  border-radius: 12px;
+  transition: background .2s;
+}
+.slider::before {
+  content: '';
+  position: absolute;
+  width: 18px; height: 18px;
+  left: 3px; top: 3px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0,0,0,.2);
+  transition: transform .2s;
+}
+.toggle input:checked + .slider { background: #4f46e5; }
+.toggle input:checked + .slider::before { transform: translateX(20px); }
+
+/* Shared row layout */
+.row-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.row-label { font-weight: 500; font-size: 14px; display: flex; align-items: center; gap: 6px; }
+.row-desc  { font-size: 12px; color: #6b7280; margin-top: 2px; }
+
+/* Radio rows */
+.radio-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f3f4f6;
+  cursor: pointer;
+}
+.radio-row:last-child { border-bottom: none; padding-bottom: 0; }
+.radio-row:first-of-type { padding-top: 0; }
+.radio-row input[type=radio] {
+  width: 16px; height: 16px;
+  accent-color: #4f46e5;
+  margin-top: 3px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+/* Checkbox rows */
+.check-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f3f4f6;
+  cursor: pointer;
+}
+.check-row:last-child { border-bottom: none; padding-bottom: 0; }
+.check-row:first-of-type { padding-top: 0; }
+.check-row input[type=checkbox] {
+  width: 16px; height: 16px;
+  accent-color: #4f46e5;
+  margin-top: 3px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.check-row.danger input[type=checkbox] { accent-color: #dc2626; }
+
+/* Tags */
+.tag {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: #f3f4f6;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  vertical-align: middle;
+}
+.danger-tag  { background: #fef2f2; color: #dc2626; }
+.always-tag  { background: #ecfdf5; color: #15803d; }
+
+/* Divider inside card */
+.divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 6px 0 12px;
+}
+
+/* Select row */
+.select-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+select {
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  background: white;
+  font-size: 13px;
+  color: #1e1e2e;
+  cursor: pointer;
+  outline: none;
+}
+select:focus { border-color: #4f46e5; box-shadow: 0 0 0 3px rgba(79,70,229,.15); }
+
+/* Sticky footer */
+.page-footer {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 12px 24px;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+}
+#save-status { font-size: 13px; color: #15803d; }
+#save-status.error { color: #dc2626; }
+
+.save-btn {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity .15s;
+}
+.save-btn:hover { opacity: .88; }
+.save-btn:active { opacity: .72; }

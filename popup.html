@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tab Cleaner</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+      <svg viewBox="0 0 32 32" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="32" height="32" rx="8" fill="#4f46e5"/>
+        <path d="M21 7 L11 20" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M9 18 Q14 25 20 22" stroke="white" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <circle cx="23" cy="9" r="2.5" fill="#fbbf24"/>
+      </svg>
+    </div>
+    <div class="title-group">
+      <span class="title">Tab Cleaner</span>
+      <span class="subtitle" id="mode-label">Every tab close</span>
+    </div>
+    <label class="toggle" title="Enable / disable">
+      <input type="checkbox" id="enabled-toggle" />
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="status-bar" id="status-bar">
+    <span id="status-icon">✓</span>
+    <span id="status-text">Active — clears on every tab close</span>
+  </div>
+
+  <!-- Stats grid -->
+  <div class="stats-grid">
+    <div class="stat">
+      <span class="stat-val indigo" id="stat-cookies">—</span>
+      <span class="stat-label">cookies removed</span>
+    </div>
+    <div class="stat">
+      <span class="stat-val amber" id="stat-history">—</span>
+      <span class="stat-label">history removed</span>
+    </div>
+    <div class="stat">
+      <span class="stat-val" id="stat-today">—</span>
+      <span class="stat-label">clears today</span>
+    </div>
+    <div class="stat">
+      <span class="stat-val" id="stat-last">—</span>
+      <span class="stat-label">last clear</span>
+    </div>
+  </div>
+
+  <!-- Chart -->
+  <div class="chart-wrap">
+    <canvas id="chart"></canvas>
+  </div>
+
+  <div class="chips" id="chips"></div>
+
+  <div class="footer">
+    <button class="clear-now-btn" id="clear-now">Clear now</button>
+    <button class="settings-btn" id="open-settings">Settings</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
