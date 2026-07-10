@@ -99,3 +99,6 @@ Open the popup and click **Settings**, or right-click the toolbar icon and choos
 - **Web SQL is off by default.** It was removed from Chrome 119+ and will silently be skipped if unsupported.
 - The extension gracefully skips any data type that your browser version does not support — it will never throw an error and stop the clear mid-way.
 - Stats are stored locally in `chrome.storage.local` and never leave your device.
+
+
+-** This project was built by Codex (OpenAI)**
